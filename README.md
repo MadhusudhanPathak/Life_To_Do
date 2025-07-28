@@ -70,43 +70,10 @@ Inspired by the concept of "semantic synesthesia," where abstract ideas are give
 ├── requirements.txt    # Python dependencies
 ├── .gitignore          # Specifies files/folders to ignore in Git (e.g., User_Data)
 ├── common_goals_context.txt # Example text file for context loading
+├── Future_Prospects.md # What are the possible scalling and future scope.
 └── User_Data/          # Directory for user-specific data (created automatically)
     ├── goals.json      # Stores the goal graph data
     └── chat_log.txt    # Stores the chat history
     └── temp_goal_graph.png # Temporary graph visualization image
     └── temp_goal_graph.dot # Temporary graph visualization DOT file
 ```
-
-## Possible Future Scaling and Implementations
-
-Project Chimera is built with extensibility in mind, laying the groundwork for more advanced features and scaling possibilities:
-
-### From Graph to Vector Spaces and Embeddings
-
-*   **Semantic Search & Similarity:** Current graph relies on explicit connections. Future versions could embed goals (nodes) and even relationships (edges) into a high-dimensional vector space. This would enable:
-    *   **Semantic Goal Search:** Finding goals similar to a given query, even if not directly linked.
-    *   **Automated Dependency Suggestion:** Identifying implicit dependencies or synergistic goals based on vector similarity.
-    *   **Clustering:** Grouping semantically related goals for better organization and overview.
-*   **Knowledge Graph Integration:** Beyond simple nodes and edges, integrating with formal knowledge graphs or building a more sophisticated ontology for goal types, resources, and constraints.
-
-### From Local Smaller LLMs to Larger LLMs
-
-*   **Enhanced Goal Extraction:** While current local LLMs are capable, larger models (accessed via APIs like OpenAI, Anthropic, Gemini) could offer:
-    *   **More Nuanced Understanding:** Better interpretation of complex, ambiguous, or highly subjective goal descriptions.
-    *   **Improved JSON Adherence:** More reliable and consistent structured output, reducing parsing errors.
-    *   **Contextual Reasoning:** Deeper understanding of the user's overall context to suggest more relevant and personalized goals or pathways.
-*   **Advanced Planning & Reasoning:** Larger LLMs could be leveraged for:
-    *   **Automated Task Breakdown:** Decomposing high-level goals into granular, actionable tasks.
-    *   **Constraint Satisfaction:** Considering time, resources, and skills to optimize goal sequences.
-    *   **Proactive Suggestions:** Identifying potential roadblocks or suggesting alternative approaches based on a vast knowledge base.
-*   **Hybrid Approaches:** Combining the strengths of local and cloud-based LLMs. Local models could handle basic interactions and data privacy, while larger cloud models are used for complex reasoning tasks when explicitly requested or required.
-
-### Other Potential Enhancements
-
-*   **Time-Based Planning:** Integrating deadlines, schedules, and calendar synchronization.
-*   **Resource Management:** Tracking resources (time, money, skills) required for goals.
-*   **Progress Tracking:** Allowing users to mark progress on goals and tasks.
-*   **Multi-User Support:** Enabling collaborative goal planning.
-*   **Alternative Visualizations:** Exploring other graph visualization libraries or interactive web-based visualizations.
-*   **User Profiles & Personalization:** Storing more detailed user preferences and historical data to tailor suggestions.
-*   **Integration with External Tools:** Connecting to project management software, calendars, or note-taking apps.
