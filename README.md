@@ -1,10 +1,8 @@
-# Project Chimera: Augmenting Life Planning with LLMs and Graph Technology
+# Life To Do: Augmenting Life Planning with LLMs and Graph
 
 ## Overview
 
-Project Chimera is an innovative application designed to assist individuals in their life planning by combining the power of Large Language Models (LLMs) with a structured graph database. The core philosophy is to transform subjective human goals and aspirations into an objective, interconnected network, making the planning process more intuitive, efficient, and actionable.
-
-Inspired by the concept of "semantic synesthesia," where abstract ideas are given a tangible, visual form, this tool allows users to visualize their life's objectives as a dynamic graph. This visual representation helps in understanding complex relationships, identifying critical dependencies, and charting the most efficient pathways towards goal achievement.
+This Project is an innovative application designed to assist individuals in their life planning by combining the power of Large Language Models (LLMs) with a structured graph database. The core philosophy is to transform subjective human goals and aspirations into an objective, interconnected network, making the planning process more intuitive, efficient, and actionable. Inspired by the concept of "semantic synesthesia," where abstract ideas are given a tangible, visual form, this tool allows users to visualize their life's objectives as a dynamic graph. This visual representation helps in understanding complex relationships, identifying critical dependencies, and charting the most efficient pathways towards goal achievement.
 
 ## Core Functionality
 
@@ -17,7 +15,6 @@ Inspired by the concept of "semantic synesthesia," where abstract ideas are give
 *   **Chat History Logging:** All interactions with the LLM are logged to a `chat_log.txt` file within the `User_Data` directory, which can be loaded and reviewed later.
 *   **Intuitive User Interface (GUI):** Built with Tkinter, the GUI provides a user-friendly experience with:
     *   Automatic selection of the lightest available Ollama model.
-    *   Clear status indicators for LLM processing.
     *   Buttons for loading files, viewing the graph, loading chat history, showing graph summaries, and clearing the display.
     *   A multi-line input box with "Enter to Send" functionality.
     *   Robust checks for Ollama server availability on startup.
