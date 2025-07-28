@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+*.egg-info/
+.Python
+
+# IDEs
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# User Data (specific to this project)
+User_Data/
+
+# Temporary files
+*.png
+*.dot
