@@ -2,75 +2,136 @@
 
 ## Overview
 
-This Project is an innovative application designed to assist individuals in their life planning by combining the power of Large Language Models (LLMs) with a structured graph database. The core philosophy is to transform subjective human goals and aspirations into an objective, interconnected network, making the planning process more intuitive, efficient, and actionable. Inspired by the concept of "semantic synesthesia," where abstract ideas are given a tangible, visual form, this tool allows users to visualize their life's objectives as a dynamic graph. This visual representation helps in understanding complex relationships, identifying critical dependencies, and charting the most efficient pathways towards goal achievement.
+Life To Do is an innovative application designed to assist individuals in their life planning by combining the power of Large Language Models (LLMs) with a structured graph database. The core philosophy is to transform subjective human goals and aspirations into an objective, interconnected network, making the planning process more intuitive, efficient, and actionable. Inspired by the concept of "semantic synesthesia," where abstract ideas are given a tangible, visual form, this tool allows users to visualize their life's objectives as a dynamic graph. This visual representation helps in understanding complex relationships, identifying critical dependencies, and charting the most efficient pathways towards goal achievement.
 
-## Core Functionality
+## Features
 
-*   **Goal Management:** Users can define and manage their personal and professional goals. Each goal is represented as a node in a directed graph, allowing for the creation of complex relationships.
-*   **Dynamic Goal Attributes:** Goals can be enriched with various attributes such as `description`, `priority` (e.g., High, Medium, Low), and `dependencies`. The system is designed to be flexible, allowing for the addition of new attributes as needed.
-*   **LLM-Powered Interaction:** A locally hosted LLM (via Ollama) serves as the primary interface. Users interact with the system using natural language, describing their goals, constraints, and context. The LLM intelligently parses this input, extracts structured goal data (in JSON format), and updates the underlying graph. Conversely, it can interpret graph data back into human-readable insights.
-*   **Contextual Input:** Users can load external text files to provide broader context to the LLM, enabling more informed goal extraction and conversational responses.
-*   **Graph Visualization:** The application generates a visual representation of the goal graph, allowing users to see the interconnectedness of their objectives. This visualization is opened in the system's default image viewer.
-*   **Persistent Data Storage:** All goals, their attributes, and relationships are saved to a `goals.json` file within a dedicated `User_Data` directory, ensuring data persistence across sessions.
-*   **Chat History Logging:** All interactions with the LLM are logged to a `chat_log.txt` file within the `User_Data` directory, which can be loaded and reviewed later.
-*   **Intuitive User Interface (GUI):** Built with Tkinter, the GUI provides a user-friendly experience with:
-    *   Automatic selection of the lightest available Ollama model.
-    *   Buttons for loading files, viewing the graph, loading chat history, showing graph summaries, and clearing the display.
-    *   A multi-line input box with "Enter to Send" functionality.
-    *   Robust checks for Ollama server availability on startup.
+- **Goal Management**: Define and manage personal and professional goals with rich attributes
+- **LLM-Powered Interaction**: Natural language processing with local LLMs via Ollama
+- **Dependency Tracking**: Visualize and manage goal dependencies with graph structures
+- **Context Loading**: Import external context from text files for better goal extraction
+- **Visual Graph Representation**: Generate and view visual representations of your goal network using matplotlib
+- **Persistent Storage**: Automatic saving and loading of goals and chat history
+- **Modular Architecture**: Clean separation of concerns with extensible components
+- **Modern UI**: Enhanced user interface with Times New Roman font, larger input area, and light theme
+- **Customization Options**: Theme and font size customization
+- **Keyboard Shortcuts**: Efficient navigation with keyboard shortcuts
+- **Comprehensive Error Handling**: Robust validation and error management
 
-## Technical Stack
+## Architecture
 
-*   **Backend Logic:** Python
-*   **Large Language Models (LLMs):** [Ollama](https://ollama.ai/) (for local LLM inference)
-*   **Graph Data Structure:** [NetworkX](https://networkx.org/)
-*   **Graph Visualization:** [Graphviz](https://graphviz.org/) (requires system-wide installation)
-*   **Graphical User Interface (GUI):** [Tkinter](https://docs.python.org/3/library/tkinter.html) (Python's standard GUI library)
-*   **Image Handling:** [Pillow (PIL)](https://python-pillow.org/)
-*   **HTTP Requests:** [Requests](https://requests.readthedocs.io/en/latest/) (for Ollama connectivity checks)
-
-## Getting Started
-
-### Prerequisites
-
-*   **Python 3.x:** Ensure you have Python installed.
-*   **Ollama:** Download and install Ollama from [https://ollama.ai/](https://ollama.ai/). After installation, pull at least one model (e.g., `ollama pull llama2`).
-*   **Graphviz:** Download and install Graphviz from [https://graphviz.org/download/](https://graphviz.org/download/). **Crucially, ensure Graphviz executables are added to your system's PATH environment variable.** You can verify this by opening your terminal/command prompt and typing `dot -V`.
-
-### Installation
-
-1.  **Clone the repository (or download the project files).**
-2.  **Navigate to the project directory** in your terminal.
-3.  **Install the required Python libraries:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-### Running the Application
-
-1.  **Start the Ollama server:** Open your terminal/command prompt and run:
-    ```bash
-    ollama serve
-    ```
-2.  **Run the application:** In a separate terminal/command prompt, navigate to the project directory and run:
-    ```bash
-    python main.py
-    ```
-    The GUI application window should appear.
-
-## Project Structure
+The application follows a clean, modular architecture:
 
 ```
-.
-├── main.py             # Main application logic and Tkinter GUI
-├── goal_graph.py       # Handles graph data structure and persistence (NetworkX wrapper)
-├── requirements.txt    # Python dependencies
-├── .gitignore          # Specifies files/folders to ignore in Git (e.g., User_Data)
-├── common_goals_context.txt # Example text file for context loading
-├── Future_Prospects.md # What are the possible scalling and future scope.
-└── User_Data/          # Directory for user-specific data (created automatically)
-    ├── goals.json      # Stores the goal graph data
-    └── chat_log.txt    # Stores the chat history
-    └── temp_goal_graph.png # Temporary graph visualization image
-    └── temp_goal_graph.dot # Temporary graph visualization DOT file
+src/
+├── core/               # Business logic and data models
+│   ├── __init__.py
+│   ├── goal.py         # Goal data class
+│   ├── goal_graph.py   # Graph management
+│   └── llm_service.py  # LLM interaction layer
+├── ui/                 # User interface components
+│   ├── __init__.py
+│   └── tkinter_ui.py   # Tkinter GUI implementation
+├── utils/              # Utility functions
+│   ├── __init__.py
+│   └── logger.py       # Logging configuration
+├── config/             # Configuration management
+│   ├── __init__.py
+│   └── config.py       # App configuration
+├── data/               # Data handling (future)
+│   └── __init__.py
+└── tests/              # Unit tests
+    └── __init__.py
 ```
+
+## Prerequisites
+
+- **Python 3.8+**: Ensure you have Python 3.8 or higher installed
+- **Ollama**: Download and install Ollama from [https://ollama.ai/](https://ollama.ai/). After installation, pull at least one model (e.g., `ollama pull llama2`)
+
+## Installation
+
+1. **Clone the repository** (or download the project files)
+2. **Navigate to the project directory** in your terminal
+3. **Install the required Python libraries**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Usage
+
+### Starting the Application
+
+1. **Start the Ollama server**: Open your terminal/command prompt and run:
+   ```bash
+   ollama serve
+   ```
+2. **Run the application**: In a separate terminal/command prompt, navigate to the project directory and run:
+   ```bash
+   python main.py
+   ```
+   The GUI application window should appear.
+
+### Using the Application
+
+- **Load Context**: Use the "Load File" button or Ctrl+O to import text files with goal context
+- **Chat with AI**: Type messages in the input box or press Enter to send
+- **View Graph**: Click "View Graph" or press Ctrl+G to generate and view the visual representation
+- **Manage Goals**: Goals are automatically extracted from conversations and stored
+- **Check Summary**: Use "Show Graph Summary" or Ctrl+S to see a text summary of your goals
+- **Customize**: Access Settings menu to change theme or font size
+- **Keyboard Shortcuts**:
+  - Ctrl+O: Load File
+  - Ctrl+G: View Graph
+  - Ctrl+L: Load Chat History
+  - Ctrl+S: Show Summary
+  - Ctrl+D: Clear Display
+  - F5: Refresh Models
+  - Enter: Send message (multi-line with Shift+Enter)
+
+## Configuration
+
+The application uses a `config.json` file for configuration. Default settings include:
+
+- `user_data_dir`: Directory for user data (default: "User_Data")
+- `default_model`: Default Ollama model (default: "llama2")
+- `window_size`: GUI window dimensions (default: "1200x800")
+
+## Development
+
+For development, install additional dependencies:
+```bash
+pip install -r requirements-dev.txt
+```
+
+## Testing
+
+Run the unit tests with:
+
+```bash
+python -m pytest src/tests/
+```
+
+## Error Handling
+
+The application includes comprehensive error handling:
+- Model validation before LLM calls
+- Input sanitization for all user inputs
+- Graceful handling of missing dependencies
+- Detailed error messages for troubleshooting
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the terms found in the LICENSE file.
+
+## Project Status
+
+This project is actively maintained and production-ready. All functionality has been preserved while significantly improving maintainability, robustness, and user experience.

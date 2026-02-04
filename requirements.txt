@@ -1,8 +1,8 @@
-# Required Python packages for the Ollama Goal Planner application.
+# Required Python packages for the Life To Do application.
 # Install using: pip install -r requirements.txt
 
-ollama==0.5.1
-networkx==3.4.2
-Pillow==10.4.0
-graphviz==0.20.1
-requests==2.32.3
+ollama>=0.5.1
+networkx>=3.4.2
+Pillow>=10.4.0
+matplotlib>=3.5.0
+requests>=2.32.3

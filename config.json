@@ -1,0 +1,9 @@
+{
+    "user_data_dir": "User_Data",
+    "chat_log_file": "chat_log.txt",
+    "goals_file": "goals.json",
+    "default_model": "llama2",
+    "graphviz_format": "png",
+    "window_size": "1000x700",
+    "logging_level": "INFO"
+}
